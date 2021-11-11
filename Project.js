@@ -113,12 +113,15 @@ class CourseSection {
 }
 
 class CourseEnrollment {
-    constructor(CourseSection, Student, grade) {
+    constructor(Course, CourseSection, Student, grade) {
+        this.Course = Course;
         this.CourseSection = CourseSection;
         this.Student = Student;
         this.grade = grade;
-        this.waitlistPosition = waitlistPosition;
     }
+    
+    get Course() { return this.Course; }
+    set Course(Course) { this.Course = Course; }
     
     get CourseSection() { return this.CourseSection; }
     set CourseSection(CourseSection) { this.CourseSection = CourseSection; }
@@ -128,6 +131,24 @@ class CourseEnrollment {
     
     get grade() { return this.grade; }
     set grade(grade) { this.grade = grade; }
+}
+
+class WaitlistedItem {
+    constructor(Course, CourseSection, Student, waitlistPosition) {
+        this.Course = Course;
+        this.CourseSection = CourseSection;
+        this.Student = Student;
+        this.waitlistPosition = waitlistPosition;
+    }
+    
+    get Course() { return this.Course; }
+    set Course(Course) { this.Course = Course; }
+    
+    get CourseSection() { return this.CourseSection; }
+    set CourseSection(CourseSection) { this.CourseSection = CourseSection; }
+
+    get Student() { return this.Student; }
+    set Student(Student) { this.Student = Student; }
 
     get waitlistPosition() { return this.waitlistPosition; }
     set waitlistPosition(waitlistPosition) { this.grade = waitlistPosition; }
