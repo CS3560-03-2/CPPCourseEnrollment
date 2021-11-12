@@ -1,0 +1,98 @@
+
+.hidden {
+    display: none;
+}
+
+body {
+    margin: 0;
+    background: rgb(195, 211, 255);
+    font-family: arial;
+}
+
+header{
+    background: rgb(195, 211, 255);
+    color: #000;
+    padding: 25px 25px;
+    text-align: center;
+}
+
+h2 {
+    background: rgb(152, 180, 255);
+    padding: 10px;
+    color: #000;
+    font-family: arial;
+}
+
+.row1 {
+    padding: 0px 5px 0px 5px;
+    background: rgb(152, 180, 255);
+}
+
+.scol {
+    margin-left: 15px;
+    display: inline-block;
+}
+.floatright {
+    float: right;
+}
+
+.col {
+    background: rgb(195, 211, 255);
+    color: #000;
+    padding: 1%;
+    float: left;
+    width: 18%;
+    margin: 10px 0;
+}
+button {
+    color: #111;
+    padding: 15px 50px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+    position: relative;
+}
+
+
+.shoppingCart {
+    min-height: 270px;
+}
+
+table {
+    width: 100%;
+}
+th, td {
+    height: 30px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.row3 {
+    margin-top: 25px;
+    padding: 0px 5px 0px 5px;
+    background: rgb(152, 180, 255);
+}
+
+.textbox {
+    font-size: 20px;
+    padding: 10px;
+}
+
+#courseName {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+#selectCol {
+    width: 150px;
+}
+
+hr {
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
+    border-width:0;
+    height: 3px;
+}

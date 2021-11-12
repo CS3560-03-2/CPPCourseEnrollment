@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search Classes</title>
+        <link rel="stylesheet" href="styles/style.css"/>
+        <script src="scripts/search.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>CPP Class Registration</h1>
+        </header>
+
+        <div class= "row1">
+            <div class="scol">
+                <h2>Search Classes</h2>
+            </div>
+            <div class="scol floatright">
+                <button id="searchBtn" onclick="searchButtonPressed()">Search</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class= "row1">
+            <div class="scol">
+                <h2>Subject</h2>
+            </div>
+            <input class="textbox" type="text">
+        </div>
+
+        <div class= "row1">
+            <div class="scol">
+                <h2>Course Number</h2>
+            </div>
+            <input class="textbox" type="text">
+        </div>
+
+        <div id="searchResults" class="hidden">
+            
+            <hr>
+            <br>
+
+            <h3 id="courseName">CS 1300 - Discrete Structures</h3>
+
+            <div position='absolute' bottom='0px'>
+                <div class="col"></div>
+                <div class="col">Open</div>
+                <div class="col">Closed</div>
+                <div class="col">Waitlist</div>
+                <div class="col"></div>
+            </div>
+    
+            <div>
+                <table id='resultList'>
+                    <tr>
+                        <th>Section</th>
+                        <th>Schedule</th>
+                        <th>Room</th>
+                        <th>Instructor</th>
+                        <th>Status</th>
+                        <th id="selectCol"></th>
+                    </tr>
+                </table>
+            </div>
+            
+            
+        </div>
+        
+        
+
+    </body>
+</html>

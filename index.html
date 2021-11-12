@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS 3560 Course Enrollment System</title>
+         <link rel="stylesheet" href="styles/style.css"/>
+        <script src="scripts/app.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>CPP Class Registration</h1>
+        </header>
+
+        <div class= "row1">
+            <div class="scol">
+                <h2>Your Shopping Cart</h2>
+            </div>
+            <div class="scol floatright">
+                <button id="enrollBtn" onclick="addRow()">Enroll</button>
+            </div>
+        </div>
+
+        <div>
+            <div class="col"></div>
+            <div class="col">Open</div>
+            <div class="col">Closed</div>
+            <div class="col">Waitlist</div>
+            <div class="col"></div>
+        </div>
+
+
+        <div class='shoppingCart'>
+            <table id='shoppingCart'>
+                <tr>
+                  <th>Course</th>
+                  <th>Schedule</th>
+                  <th>Room</th>
+                  <th>Instructor</th>
+                  <th>Units</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+            </table>
+        </div>
+        
+
+        <div class= "row3">
+            <div class="scol">
+                <h2>Your Class Schedule</h2>
+            </div>
+            <div class="scol floatright">
+                <a href="drop.html"><button id="dropCourseBtn">Drop Courses</button></a>
+            </div>
+            <div class="scol floatright">
+                <a href="search.html"><button id="searchCourseBtn">Search Courses</button></a>
+            </div>
+
+        </div>
+          
+        <div>
+            <div class="col"></div>
+            <div class="col">Enrolled</div>
+            <div class="col">Dropped</div>
+            <div class="col">Waitlisted</div>
+            <div class="col"></div>
+        </div>
+
+        <div>
+            <table id='classSchedule'>
+                <tr>
+                  <th>Course</th>
+                  <th>Schedule</th>
+                  <th>Room</th>
+                  <th>Instructor</th>
+                  <th>Units</th>
+                  <th>Status</th>
+                </tr>
+            </table>
+        </div>
+
+        
+    </body>
+
+
+</html>
+
+
+
