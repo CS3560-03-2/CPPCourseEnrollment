@@ -16,15 +16,15 @@
                 <h2>Your Shopping Cart</h2>
             </div>
             <div class="scol floatright">
-                <button id="enrollBtn" onclick="addRow()">Enroll</button>
+                <a href="enroll.html"><button id="enrollBtn">Enroll</button></a>
             </div>
         </div>
 
         <div>
             <div class="col"></div>
-            <div class="col">Open</div>
-            <div class="col">Closed</div>
-            <div class="col">Waitlist</div>
+            <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Open</div>
+            <div class="col2" id='droppedStatus'>■</div> <div class="col">Closed</div>
+            <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlist</div>
             <div class="col"></div>
         </div>
 
@@ -32,13 +32,13 @@
         <div class='shoppingCart'>
             <table id='shoppingCart'>
                 <tr>
-                  <th>Course</th>
+                  <th id='courseCol'>Course</th>
                   <th>Schedule</th>
-                  <th>Room</th>
+                  <th id='roomCol'>Room</th>
                   <th>Instructor</th>
-                  <th>Units</th>
-                  <th>Status</th>
-                  <th>Delete</th>
+                  <th id='unitsCol'>Units</th>
+                  <th id='statusCol'>Status</th>
+                  <th id='deleteCol'>Delete</th>
                 </tr>
             </table>
         </div>
@@ -59,21 +59,21 @@
           
         <div>
             <div class="col"></div>
-            <div class="col">Enrolled</div>
-            <div class="col">Dropped</div>
-            <div class="col">Waitlisted</div>
+            <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Enrolled</div>
+            <div class="col2" id='droppedStatus'>■</div> <div class="col">Dropped</div>
+            <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlisted</div>
             <div class="col"></div>
         </div>
 
         <div>
             <table id='classSchedule'>
                 <tr>
-                  <th>Course</th>
-                  <th>Schedule</th>
-                  <th>Room</th>
-                  <th>Instructor</th>
-                  <th>Units</th>
-                  <th>Status</th>
+                    <th id='courseCol'>Course</th>
+                    <th>Schedule</th>
+                    <th id='roomCol'>Room</th>
+                    <th>Instructor</th>
+                    <th id="unitsCol">Units</th>
+                    <th id="statusCol">Status</th>
                 </tr>
             </table>
         </div>

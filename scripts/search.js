@@ -16,6 +16,7 @@ function searchButtonPressed() {
 
     var table = document.getElementById("resultList");
 
+    /*
     // Clear search results
     for (var i = table.rows.length - 1; i > 0; i--) {
         table.deleteRow(i);
@@ -23,13 +24,11 @@ function searchButtonPressed() {
 
     // Fill search results
 
-
-
-
+    
     // Add and fill 5 random rows
     for (var i = 0; i < Math.random()*10; i++) {
         var row = table.insertRow(table.rows.length);
-
+        
         // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -45,5 +44,5 @@ function searchButtonPressed() {
         cell5.innerHTML = "NEW CELL5";
         cell6.innerHTML = "NEW CELL6";
     }
-    
+    */
 }

@@ -10,7 +10,6 @@ body {
 }
 
 header{
-    background: rgb(195, 211, 255);
     color: #000;
     padding: 25px 25px;
     text-align: center;
@@ -37,13 +36,32 @@ h2 {
 }
 
 .col {
-    background: rgb(195, 211, 255);
-    color: #000;
-    padding: 1%;
+    padding-top: 1%;
+    padding-right: 1%;
     float: left;
     width: 18%;
     margin: 10px 0;
 }
+.col2 {
+    padding-top: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 1%;
+    margin: 10px 0;
+}
+
+#enrolledStatus, #openStatus {
+    color: green;
+}
+
+#droppedStatus, #closedStatus {
+    color: red
+}
+
+#waitlistStatus {
+    color: yellow;
+}
+
 button {
     color: #111;
     padding: 15px 50px;
@@ -52,7 +70,28 @@ button {
     right: 15px;
     position: relative;
 }
+#selectBtn {
+    padding: 0px 0px;
+    font-size: 0px;
+    top: 0px;
+    right: 0px;
+    height: 10px;
+    font-size: 15px;
+    position: relative;
+}
+#deleteBtn {
+    padding: 0px 0px;
+    font-size: 0px;
+    top: 0px;
+    right: 0px;
+    height: 10px;
+    font-size: 20px;
+    position: relative;
+}
 
+#deleteBtn {
+    color: red;
+}
 
 .shoppingCart {
     min-height: 270px;
@@ -86,9 +125,32 @@ table, th, td {
     margin-bottom: 5px;
 }
 
-#selectCol {
-    width: 150px;
+
+#courseCol {
+    width: 8%;
 }
+#sectionCol {
+    width: 5%;
+}
+#roomCol {
+    width: 8%;
+}
+#unitsCol {
+    width: 4%;
+}
+#statusCol {
+    width: 4%;
+}
+#checkCol {
+    width: 3%;
+}
+#selectCol {
+    width: 5%;
+}
+#deleteCol {
+    width: 5%;
+}
+
 
 hr {
     color: rgb(0, 0, 0);

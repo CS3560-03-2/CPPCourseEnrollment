@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Drop Class</title>
+        <title>Drop Courses</title>
         <link rel="stylesheet" href="styles/style.css"/>
+        <script src="scripts/drop.js" defer></script>
     </head>
-    <body>
-        
+
+    <body onload="onLoad()">
+        <header>
+            <h1>CPP Class Registration</h1>
+        </header>
+
+        <div class= "row3">
+            <div class="scol">
+                <h2>Drop Courses</h2>
+            </div>
+            <div class="scol floatright">
+                <button id="dropCourseBtn" onclick="showConfirmation()">Drop Courses</button>
+            </div>
+        </div>
+          
+        <div>
+            <div class="col"></div>
+            <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Enrolled</div>
+            <div class="col2" id='droppedStatus'>■</div> <div class="col">Dropped</div>
+            <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlisted</div>
+            <div class="col"></div>
+        </div>
+
+        <div>
+            <table id='classSchedule'>
+                <tr>
+                  <th id='checkCol'></th>
+                  <th id='courseCol'>Course</th>
+                  <th>Schedule</th>
+                  <th id='roomCol'>Room</th>
+                  <th>Instructor</th>
+                  <th id='unitsCol'>Units</th>
+                  <th id='statusCol'>Status</th>
+                </tr>
+            </table>
+        </div>
+
     </body>
 </html>

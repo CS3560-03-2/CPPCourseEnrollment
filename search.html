@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Search Classes</title>
+        <title>Search Courses</title>
         <link rel="stylesheet" href="styles/style.css"/>
         <script src="scripts/search.js" defer></script>
     </head>
@@ -44,21 +44,58 @@
 
             <div position='absolute' bottom='0px'>
                 <div class="col"></div>
-                <div class="col">Open</div>
-                <div class="col">Closed</div>
-                <div class="col">Waitlist</div>
+                <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Open</div>
+                <div class="col2" id='closedStatus'>■</div> <div class="col">Closed</div>
+                <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlist</div>
                 <div class="col"></div>
             </div>
     
             <div>
                 <table id='resultList'>
                     <tr>
-                        <th>Section</th>
+                        <th id='sectionCol'>Section</th>
                         <th>Schedule</th>
-                        <th>Room</th>
+                        <th id="roomCol">Room</th>
                         <th>Instructor</th>
-                        <th>Status</th>
+                        <th id="statusCol">Status</th>
                         <th id="selectCol"></th>
+                    </tr>
+                    
+                    <!--sample table row-->
+                    <tr>
+                        <td>01</td>
+                        <td>MWF 4:00PM - 4:50PM</td>
+                        <td>5 - 222</td>
+                        <td>M. Wilson</td>
+                        <td id='openStatus'>✓</td>
+                        <td id="selectCol"><button id="selectBtn">Select</button></td>
+                    </tr>
+                    <!--sample table row-->
+                    <tr>
+                        <td>02</td>
+                        <td>TTh 12:00PM - 1:50PM</td>
+                        <td>6 - 234</td>
+                        <td>F. Smith</td>
+                        <td id='closedStatus'>■</td>
+                        <td><button id="selectBtn">Select</button></td>
+                    </tr>
+                    <!--sample table row-->
+                    <tr>
+                        <td>03</td>
+                        <td>MW 10:00AM - 11:50AM</td>
+                        <td>5 - 222</td>
+                        <td>F. Smith</td>
+                        <td id='waitlistStatus'>▲</td>
+                        <td><button id="selectBtn">Select</button></td>
+                    </tr>
+                    <!--sample table row-->
+                    <tr>
+                        <td>04</td>
+                        <td>TuTh 10:00AM - 11:50AM</td>
+                        <td>5 - 222</td>
+                        <td>F. Smith</td>
+                        <td id='openStatus'>✓</td>
+                        <td><button id="selectBtn">Select</button></td>
                     </tr>
                 </table>
             </div>
