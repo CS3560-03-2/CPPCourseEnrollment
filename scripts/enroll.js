@@ -11,7 +11,7 @@ function onLoad() {
 }
 
 
-function sh(owConfirmation) {
+function showConfirmation() {
     console.log("showConfirmation");
     var confirmation = confirm("Are you sure you want to enroll in the course(s)?");
     if (confirmation) {

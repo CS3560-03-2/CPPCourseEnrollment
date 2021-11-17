@@ -3,7 +3,7 @@
     <head>
         <title>CS 3560 Course Enrollment System</title>
          <link rel="stylesheet" href="styles/style.css"/>
-        <script src="scripts/app.js" defer></script>
+        <script src="scripts/index.js" defer>import Axios from 'axios';</script>
         <script src="https://kit.fontawesome.com/3816b98563.js" crossorigin="anonymous"></script>
     </head>
 
@@ -48,6 +48,9 @@
         <div class= "row3">
             <div class="scol">
                 <h2>Your Class Schedule</h2>
+            </div>
+            <div class="scol floatright">
+                <button id="enrollBtn" onclick="getStudents()">getStudents</button>
             </div>
             <div class ="subrow">
                 <div class="col">Enrolled <i class="fas fa-check">  </i></div>
