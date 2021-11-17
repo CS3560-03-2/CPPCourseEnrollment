@@ -4,12 +4,19 @@
         <title>Search Courses</title>
         <link rel="stylesheet" href="styles/style.css"/>
         <script src="scripts/search.js" defer></script>
+        <script src="https://kit.fontawesome.com/3816b98563.js" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <header>
-            <h1>CPP Class Registration</h1>
-        </header>
 
+        <!--Navigation Bar-->
+        <div id="nav">
+            <a href="index.html" class="nav-logo right"><img src="assets/logo.png" width="150"></a>
+            <a href="drop.html" class="nav-item left">DROP</a>
+            <a href="search.html" class="nav-item left">SEARCH</a>
+            <a href="index.html" class="nav-item left">MY CLASS SCHEDULE</a>
+    
+        </div>
+
+    <body>
         <div class= "row1">
             <div class="scol">
                 <h2>Search Classes</h2>
@@ -50,7 +57,7 @@
                 <div class="col"></div>
             </div>
     
-            <div>
+            <div class="classSchedule">
                 <table id='resultList'>
                     <tr>
                         <th id='sectionCol'>Section</th>

@@ -107,10 +107,17 @@ button {
 
 .shoppingCart {
     min-height: 270px;
+    padding-left: 10%;
+}
+
+.classSchedule {
+    padding-left: 10%;
+    width: 90%;
 }
 
 table {
-    width: 100%;
+    padding-left: 10%;
+    width: 90%;
 }
 th, td {
     height: 30px;

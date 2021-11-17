@@ -4,27 +4,33 @@
         <title>Enroll</title>
         <link rel="stylesheet" href="styles/style.css"/>
         <script src="scripts/enroll.js" defer></script>
+        <script src="https://kit.fontawesome.com/3816b98563.js" crossorigin="anonymous"></script>
     </head>
-    <body onload="onLoad()">
-        <header>
-            <h1>CPP Class Registration</h1>
-        </header>
 
-        <div class= "row3">
+    <div id="nav">
+        <a href="index.html" class="nav-logo right"><img src="assets/logo.png" width="150"></a>
+        <a href="drop.html" class="nav-item left">DROP</a>
+        <a href="search.html" class="nav-item left">SEARCH</a>
+        <a href="index.html" class="nav-item left">MY CLASS SCHEDULE</a>
+
+    </div>
+
+    <body onload="onLoad()">
+        <div class= "row1">
             <div class="scol">
                 <h2>Enroll</h2>
             </div>
         </div>
           
         <div>
-            <div class="col"></div>
-            <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Enrolled</div>
-            <div class="col2" id='droppedStatus'>■</div> <div class="col">Dropped</div>
-            <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlisted</div>
-            <div class="col"></div>
+            <div class ="subrow">
+                <div class="col">Open <i class="fas fa-check">  </i></div>
+                <div class="col">Closed <i class="fas fa-times"></i></div>
+                <div class="col">Waitlisted <i class="fas fa-list"></i></div>
+            </div>
         </div>
 
-        <div>
+        <div class="shoppingCart">
             <table id='shoppingCart'>
                 <tr>
                   <th id='courseCol'>Course</th>
@@ -35,6 +41,7 @@
                   <th id='statusCol'>Status</th>
                 </tr>
                 <!--sample table row-->
+                <!--
                 <tr>
                     <td>CS 1300-04</td>
                     <td>TuTh 10:00AM - 11:50AM</td>
@@ -43,6 +50,7 @@
                     <td>4</td>
                     <td id='openStatus'>✓</td>
                 </tr>
+                -->
             </table>
         </div>
 
