@@ -4,12 +4,19 @@
         <title>CS 3560 Course Enrollment System</title>
          <link rel="stylesheet" href="styles/style.css"/>
         <script src="scripts/app.js" defer></script>
+        <script src="https://kit.fontawesome.com/3816b98563.js" crossorigin="anonymous"></script>
     </head>
 
+    <!--Navigation Bar-->
+    <div id="nav">
+        <a href="index.html" class="nav-logo right"><img src="assets/logo.png" width="150"></a>
+        <a href="drop.html" class="nav-item left">DROP</a>
+        <a href="search.html" class="nav-item left">SEARCH</a>
+        <a href="index.html" class="nav-item left">MY CLASS SCHEDULE</a>
+
+    </div>
+
     <body>
-        <header>
-            <h1>CPP Class Registration</h1>
-        </header>
 
         <div class= "row1">
             <div class="scol">
@@ -18,15 +25,13 @@
             <div class="scol floatright">
                 <a href="enroll.html"><button id="enrollBtn">Enroll</button></a>
             </div>
+            <div class="subrow"></div>
+            <div class="col2" id='enrolledStatus'>Open <i class="fas fa-check"></i></i></div>
+            <div class="col2" id='droppedStatus'>Closed <i class="fas fa-times"></i></div>
+            <div class="col2" id='waitlistStatus'>Waitlist <i class="fas fa-list"></i></div>
+            </div>
         </div>
 
-        <div>
-            <div class="col"></div>
-            <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Open</div>
-            <div class="col2" id='droppedStatus'>■</div> <div class="col">Closed</div>
-            <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlist</div>
-            <div class="col"></div>
-        </div>
 
 
         <div class='shoppingCart'>
@@ -48,21 +53,12 @@
             <div class="scol">
                 <h2>Your Class Schedule</h2>
             </div>
-            <div class="scol floatright">
-                <a href="drop.html"><button id="dropCourseBtn">Drop Courses</button></a>
-            </div>
-            <div class="scol floatright">
-                <a href="search.html"><button id="searchCourseBtn">Search Courses</button></a>
-            </div>
-
         </div>
           
-        <div>
-            <div class="col"></div>
-            <div class="col2" id='enrolledStatus'>✓</div> <div class="col">Enrolled</div>
-            <div class="col2" id='droppedStatus'>■</div> <div class="col">Dropped</div>
-            <div class="col2" id='waitlistStatus'>▲</div> <div class="col">Waitlisted</div>
-            <div class="col"></div>
+        <div class = "subrow">
+            <div class="col2" id='enrolledStatus'>Enrolled <i class="fas fa-check">  </i></div>
+            <div class="col2" id='droppedStatus'>Dropped <i class="fas fa-times"></i></div>
+            <div class="col2" id='waitlistStatus'>Waitlisted <i class="fas fa-list"></i></div>
         </div>
 
         <div>

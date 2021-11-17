@@ -5,26 +5,29 @@
 
 body {
     margin: 0;
-    background: rgb(195, 211, 255);
+    background: rgb(245, 241, 241);
     font-family: arial;
 }
 
 header{
+    background: rgb(208, 237, 198);
     color: #000;
     padding: 25px 25px;
     text-align: center;
 }
 
 h2 {
-    background: rgb(152, 180, 255);
+    background: rgb(107, 176, 113);
     padding: 10px;
     color: #000;
     font-family: arial;
 }
 
 .row1 {
-    padding: 0px 5px 0px 5px;
-    background: rgb(152, 180, 255);
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 110px 5px 0px 5px;
+    background: rgb(107, 176, 113);
 }
 
 .scol {
@@ -36,11 +39,13 @@ h2 {
 }
 
 .col {
-    padding-top: 1%;
-    padding-right: 1%;
+    background: rgb(190, 216, 181);
+    text-align: center;
+    color: #000;
+    padding: 1%;
     float: left;
     width: 18%;
-    margin: 10px 0;
+    font-weight: 700;
 }
 .col2 {
     padding-top: 1%;
@@ -62,10 +67,17 @@ h2 {
     color: yellow;
 }
 
+.subrow{
+    margin-top:15px;
+    margin-left: 25%;
+}
+
+
 button {
     color: #111;
     padding: 15px 50px;
     font-size: 20px;
+    font-weight: 600;
     top: 15px;
     right: 15px;
     position: relative;
@@ -102,6 +114,8 @@ table {
 }
 th, td {
     height: 30px;
+    color: black;
+    font-weight: bold;
 }
 table, th, td {
     border: 1px solid black;
@@ -110,8 +124,11 @@ table, th, td {
 
 .row3 {
     margin-top: 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 90px;
     padding: 0px 5px 0px 5px;
-    background: rgb(152, 180, 255);
+    background: rgb(107, 176, 113);
 }
 
 .textbox {
@@ -157,4 +174,61 @@ hr {
     background-color: rgb(0, 0, 0);
     border-width:0;
     height: 3px;
+}
+
+#nav {
+    left: 0%;
+    right: 0%;
+    background-color: #154733;
+	position: fixed;
+	display: block;
+    transition: top 0.4s;
+    box-shadow: 2px 2px 5px #383838;
+    z-index: 1;
+}
+
+.nav-item:first-child {
+    float: left;
+	font-weight: 500;
+}
+
+.nav-item {
+	color: #ffb718;
+	float: right;
+	display: block;
+	text-align: center;
+	padding: 40px;
+	text-decoration: none;
+	font-size: 21px;
+	font-weight: 500;
+}
+
+.nav-logo {
+	color: #ffb718;
+	float: left;
+	display: block;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	font-size: 17px;
+	font-weight: 500;
+}
+
+.nav-item:hover {
+	color: #ffb718;
+	transition: 0.5s;
+}
+
+
+.nav-item:hover:after {
+    transform: scaleX(1);
+}
+
+.nav-item::after {
+    display:block;
+    content: '';
+    border-bottom: solid 3px #ffb718;  
+    transform: scaleX(0);  
+    transition: 350ms ease-in-out;
+    transform-origin: 0% 50%;
 }
