@@ -1,5 +1,5 @@
-
 var student = 1;
+
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:3000/courseenrollment/students/' + student)
@@ -24,10 +24,11 @@ async function populateClassSchedule(data) {
         var cell5 = row.insertCell(5); // units
         var cell6 = row.insertCell(6); // status
         
-        cell0.innerHTML = "<input type='checkbox' id='dropCheck'>"; 
+        cell0.innerHTML = "<input type='checkbox' id='dropCheck'>";
         
         // Insert data into the new cells
         var sectionID = data[i-1].section_ID;
+        row.id = sectionID
         await fetch('http://localhost:3000/coursesection/' + sectionID)
             .then(response => response.json())
             .then((data) => {
@@ -93,10 +94,20 @@ async function showConfirmation() {
     console.log("showConfirmation");
     var confirmation = confirm("Are you sure you want to drop the course(s)?");
     if (confirmation) {
-        // drop courses
+        var grid = document.getElementById("classSchedule");
 
+        var checkBoxes = grid.getElementsByTagName("INPUT");
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked) {
+                console.log(checkBoxes[i].parentNode.parentNode.id)
+                var sectionID = checkBoxes[i].parentNode.parentNode.id
+                await fetch('http://localhost:3000/courseEnrollment/students/'+ sectionID +'/' + student,{
+                    method: 'DELETE'
+                })
+                .then(res => console.log(res))
 
-
+            }
+        }
 
 
         alert("Classes have been dropped.");

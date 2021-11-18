@@ -1,4 +1,6 @@
+const { Axios } = require("axios");
 
+var student = 1;
 function searchButtonPressed() {
     // Unhide search results section
     searchResults.classList.remove("hidden");
@@ -122,7 +124,7 @@ async function populateSearchResults(data) {
         }
         cell4.innerHTML = status;
 */ 
-        cell5.innerHTML = "<button id='selectBtn' onclick='addToShoppingCart(" + i + ")'>Select</button>"; 
+        cell5.innerHTML = "<button class = 'selectBtn' id='selectBtn " + data[i-1].section_ID + "' onclick='addToShoppingCart(this.id)'>Select</button>"; 
 
         
     }
@@ -151,8 +153,11 @@ async function populateSearchResults(data) {
     */
 }
 
-async function addToShoppingCart() {
-
+async function addToShoppingCart(clickID) {
+    console.log("clicked"+ clickID)
+    Axios.post('http://localhost:3000/shoppingcart',{section_ID: clickID, student_ID: student}).then(() =>{
+        console.log("nice")
+    })
 }
 /*
 function setnumWaitlisted(data) {

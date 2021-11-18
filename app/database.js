@@ -5,12 +5,13 @@ var mysql = require("mysql");
 const cors = require('cors');
 
 app.use(cors());
+app.use(express.json())
 
 var connection = mysql.createConnection({
     host: 'localhost',
     database: 'courseenrollment',
     user: 'root',
-    password: ''
+    password: 'asdf1234'
 });
 
 //get all students
@@ -80,6 +81,22 @@ app.get('/courseEnrollment', function(req, res){
 app.get('/courseEnrollment/students/:id', function(req, res){
     let sql = "SELECT * FROM courseenrollment WHERE student_ID = ?";
     connection.query(sql, [req.params.id], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+app.delete('/courseEnrollment/students/:sectionID/:studentID', function(req, res){
+    let sql = "DELETE FROM courseenrollment WHERE section_ID = ? AND student_ID = ?";
+    connection.query(sql, [req.params.sectionID, req.params.studentID], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+app.delete('/shoppingcart/students/:sectionID/:studentID', function(req, res){
+    let sql = "DELETE FROM shoppingcart WHERE section_ID = ? AND student_ID = ?";
+    connection.query(sql, [req.params.sectionID, req.params.studentID], function(err, results){
         if (err) throw err;
         res.send(results);
     });
@@ -195,10 +212,12 @@ let data = {
 }
 
 // INSERT - courses into shopping cart, adding from search results (based on student id) - not working
-app.get('/shoppingcart/:section_ID/:student_ID/:unitsEnrolled/:unitsWaitlisted', (req, res) =>{
+app.post('/shoppingcart', (req, res) =>{
+    const section_ID = req.body.section_ID;
+    const student_ID = req.body.section_ID
     let sql = "INSERT INTO shoppingcart VALUES (?, ?, ?, ?)";
     res.send(req.body)
-    connection.query(sql, [req.params.section_ID, req.params.student_ID, req.params.unitsEnrolled, req.params.unitsWaitlisted],function(err, results){
+    connection.query(sql, [section_ID, student_ID, 4, 4],function(err, results){
         if (err) throw err;
         res.send(results);
     });

@@ -1,1 +1,1 @@
-create/shoppingcart
+DELETE FROM courseenrollment WHERE section_ID = ? AND student_ID = ?

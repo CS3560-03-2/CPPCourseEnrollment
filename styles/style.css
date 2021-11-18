@@ -86,7 +86,7 @@ button {
     right: 15px;
     position: relative;
 }
-#selectBtn {
+.selectBtn {
     padding: 0px 0px;
     top: 0px;
     right: 0px;
@@ -94,7 +94,7 @@ button {
     font-size: 15px;
     position: relative;
 }
-#deleteBtn {
+.deleteBtn {
     padding: 0px 0px;
     font-size: 0px;
     top: 0px;

@@ -32,6 +32,7 @@ async function populateShoppingCart(data) {
         
         // Insert data into the new cells
         var sectionID = data[i-1].section_ID;
+        row.id = sectionID;
         await fetch('http://localhost:3000/coursesection/' + sectionID)
             .then(response => response.json())
             .then((data) => {
@@ -90,8 +91,16 @@ async function populateShoppingCart(data) {
             });  
         
         // Delete button
-        cell6.innerHTML = "<button id='deleteBtn' onclick='deleteThisRow'>Delete</button>";
+        cell6.innerHTML = "<button class='deleteBtn' id='" + sectionID + "' onclick='deleteThisRow(this.id)'>Delete</button>";
     }
+}
+
+async function deleteThisRow(ID){
+    await fetch('http://localhost:3000/shoppingcart/'+ ID +'/' + student,{
+        method: 'DELETE'
+    }).then(res => console.log(res))
+    window.location.href = 'index.html';
+
 }
 
 async function populateClassSchedule(data) {
@@ -175,3 +184,6 @@ async function populateClassSchedule(data) {
     }
 }
 
+async function enroll(){
+
+}
