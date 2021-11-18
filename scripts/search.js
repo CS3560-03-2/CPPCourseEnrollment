@@ -1,7 +1,4 @@
 
-//var numEnrolled;
-//var numWaitlisted;
-
 function searchButtonPressed() {
     // Unhide search results section
     searchResults.classList.remove("hidden");
@@ -40,7 +37,7 @@ async function getCourseSections(data) {
 
     // Get course sections
     var courseID = data[0].course_ID;
-    fetch('http://localhost:3000/coursesection/' + courseID)
+    fetch('http://localhost:3000/coursesection/courseID/' + courseID)
         .then(response => response.json())
         //.then(data => console.log(data));
         .then(data => populateSearchResults(data));

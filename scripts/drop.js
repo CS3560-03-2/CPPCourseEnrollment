@@ -1,3 +1,4 @@
+
 var student = 1;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -31,7 +32,7 @@ async function populateClassSchedule(data) {
             .then(response => response.json())
             .then((data) => {
                 cell1.innerHTML = data[0].sectionNumber;
-                cell2.innerHTML = data[i-1].classSchedule;
+                cell2.innerHTML = data[0].classSchedule;
 
                 courseID = data[0].course_ID;
                 fetch('http://localhost:3000/courses/' + courseID)

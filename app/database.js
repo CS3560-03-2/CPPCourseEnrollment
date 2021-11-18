@@ -141,8 +141,18 @@ app.get('/course/courseNumber/:courseNumber', function(req, res){
 });
 
 
-app.get('/coursesection/:id', function(req, res){
+// get course sections from course id
+app.get('/coursesection/courseID/:id', function(req, res){
     let sql = "SELECT * FROM coursesection WHERE course_ID = ?";
+    connection.query(sql, [req.params.id], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+// get course section from section id
+app.get('/coursesection/:id', function(req, res){
+    let sql = "SELECT * FROM coursesection WHERE section_ID = ?";
     connection.query(sql, [req.params.id], function(err, results){
         if (err) throw err;
         res.send(results);
@@ -166,16 +176,6 @@ app.get('/room/:id', function(req, res){
         res.send(results);
     });
 });
-
-// get coursesection using section_ID
-app.get('/coursesection/:id', function(req, res){
-    let sql = "SELECT * FROM room WHERE section_ID = ?";
-    connection.query(sql, [req.params.id], function(err, results){
-        if (err) throw err;
-        res.send(results);
-    });
-});
-
 
 
 // SEARCH for sectionName with sectionNumber IN courseSection -> added on page
