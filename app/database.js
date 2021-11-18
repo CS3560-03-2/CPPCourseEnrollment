@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     database: 'courseenrollment',
     user: 'root',
-    password: 'Tusd7002934'
+    password: ''
 });
 
 //get all students
@@ -51,7 +51,7 @@ app.get('/courses', function(req, res){
 
 //get courses based on courseID
 app.get('/courses/:id', function(req, res){
-    let sql = "SELECT * FROM Course WHERE courseID = ?";
+    let sql = "SELECT * FROM Course WHERE course_ID = ?";
     connection.query(sql, [req.params.id], function(err, results){
         if (err) throw err;
         res.send(results);
@@ -60,7 +60,7 @@ app.get('/courses/:id', function(req, res){
 
 //delete courses based on courseID
 app.delete('/courses/:id', function(req, res){
-    let sql = "DELETE FROM Course WHERE courseID = ?";
+    let sql = "DELETE FROM Course WHERE course_ID = ?";
     connection.query(sql, [req.params.id], function(err, results){
         if (err) throw err;
         res.send('Deletion Sucessful');
@@ -161,6 +161,15 @@ app.get('/instructor/:id', function(req, res){
 // get room using room_ID
 app.get('/room/:id', function(req, res){
     let sql = "SELECT * FROM room WHERE room_ID = ?";
+    connection.query(sql, [req.params.id], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+// get coursesection using section_ID
+app.get('/coursesection/:id', function(req, res){
+    let sql = "SELECT * FROM room WHERE section_ID = ?";
     connection.query(sql, [req.params.id], function(err, results){
         if (err) throw err;
         res.send(results);

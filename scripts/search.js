@@ -33,7 +33,7 @@ function searchButtonPressed() {
     }
 }
 
-function getCourseSections(data) {
+async function getCourseSections(data) {
     // Set course name
     var courseFullName = document.getElementById("courseFullName");
     courseFullName.textContent = "CS " + data[0].courseNumber + " - " + data[0].courseName;
@@ -46,16 +46,12 @@ function getCourseSections(data) {
         .then(data => populateSearchResults(data));
 }
 
-function populateSearchResults(data) {
+async function populateSearchResults(data) {
     table = document.getElementById("resultList");
 
     // Fill search results
     for (var i = 1; i <= data.length; i++) {
         
-        
-        
-        
-
         var row = table.insertRow(i);
 
         // Create and insert new cells into row
@@ -73,34 +69,27 @@ function populateSearchResults(data) {
         // Get room for current course section
         var roomID = data[i-1].room_ID;
 
-        console.log("qwer" + (i-1));
-        fetch('http://localhost:3000/room/' + roomID)
+        await fetch('http://localhost:3000/room/' + roomID)
             .then(response => response.json())
             .then((data) => {
                 cell2.innerHTML =  data[0].roomNumber;
                 console.log("room" + (i-1));
-            })
-            .catch(error => {
-                console.error(error);
             });
         // Get instructor for current course section
         var instructorID = data[i-1].instructor_ID;
-        fetch('http://localhost:3000/instructor/' + instructorID)
+        await fetch('http://localhost:3000/instructor/' + instructorID)
             .then(response => response.json())
-            .then((data, instructorFirstName, instructorLastName) => {
+            .then((data) => {
                 cell3.innerHTML = data[0].firstName + " " + data[0].lastName;
                 console.log("instr" + (i-1));
-            })
-            .catch(error => {
-                console.error(error);
             });
         
         //console.log(data[i-1].section_ID);
         var maxEnrolledCapacity = data[i-1].maxEnrolledCapacity;
-        fetch('http://localhost:3000/countcourseenrollment/' + data[i-1].section_ID)
+        await fetch('http://localhost:3000/countcourseenrollment/' + data[i-1].section_ID)
             .then(response => response.json())
             .then((data) => {
-                console.log(data[0].count);
+                //console.log(data[0].count);
                 var numEnrolled = data[0].count;
 
                 console.log("open: " + numEnrolled + "/" + maxEnrolledCapacity);
@@ -135,8 +124,10 @@ function populateSearchResults(data) {
             status = "<i class='fas fa-list'>";
         }
         cell4.innerHTML = status;
-*/
+*/ 
         cell5.innerHTML = "<button id='selectBtn' onclick='addToShoppingCart(" + i + ")'>Select</button>"; 
+
+        
     }
 
 
@@ -163,7 +154,7 @@ function populateSearchResults(data) {
     */
 }
 
-function addToShoppingCart() {
+async function addToShoppingCart() {
 
 }
 /*
