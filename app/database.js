@@ -123,13 +123,23 @@ app.delete('/courseenrollment/:section_ID/:student_ID', function(req, res){
 
 // SELECT - based off course name AND/OR course number (search for classes)
 // SEARCH for courseID with courseName IN course-> SEARCH for sectionName with courseID IN courseSection -> added on page
-app.get('/course/:courseName', function(req, res){
+app.get('/course/courseName/:courseName', function(req, res){
     let sql = "SELECT * FROM course WHERE courseName = ?";
     connection.query(sql, [decodeURI(req.params.courseName)], function(err, results){
         if (err) throw err;
         res.send(results);
     });
 });
+
+// SEARCH for sectionName with sectionNumber IN courseSection -> added on page
+app.get('/course/courseNumber/:courseNumber', function(req, res){
+    let sql = "SELECT * FROM course WHERE courseNumber = ?";
+    connection.query(sql, [decodeURI(req.params.courseNumber)], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
 
 app.get('/coursesection/:id', function(req, res){
     let sql = "SELECT * FROM coursesection WHERE course_ID = ?";
@@ -138,6 +148,26 @@ app.get('/coursesection/:id', function(req, res){
         res.send(results);
     });
 });
+
+// get instructor using instructor_ID
+app.get('/instructor/:id', function(req, res){
+    let sql = "SELECT * FROM instructor WHERE instructor_ID = ?";
+    connection.query(sql, [req.params.id], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+// get room using room_ID
+app.get('/room/:id', function(req, res){
+    let sql = "SELECT * FROM room WHERE room_ID = ?";
+    connection.query(sql, [req.params.id], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+
 
 // SEARCH for sectionName with sectionNumber IN courseSection -> added on page
 app.get('/coursesection/name/:id', function(req, res){
@@ -148,11 +178,18 @@ app.get('/coursesection/name/:id', function(req, res){
     });
 });
 
+let data = {
+    section_ID: 1,
+    student_ID: 1,
+    unitsEnrolled: 2,
+    unitsWaitlisted: 2
+}
 
 // INSERT - courses into shopping cart, adding from search results (based on student id) - not working
-app.post("create/shoppingcart/:section_ID/:student_ID/:unitsEnrolled/:unitsWaitlisted", (req, res) =>{
+app.post('post/shoppingcart', (req, res) =>{
     let sql = "INSERT INTO shoppingcart VALUES (?, ?, ?, ?)";
-    connection.query(sql, [req.params.section_ID, req.params.student_ID, req.params.unitsEnrolled, req.params.unitsWaitlisted],function(err, results){
+    console.log(req.body.section_ID)
+    connection.query(sql, [data.section_ID, data.student_ID, data.unitsEnrolled, data.unitsWaitlisted],function(err, results){
         if (err) throw err;
         res.send(results);
     });
@@ -160,9 +197,10 @@ app.post("create/shoppingcart/:section_ID/:student_ID/:unitsEnrolled/:unitsWaitl
 
 
 // INSERT - courses into course enrollment (based on student id) - not working
-app.post("create/courseenrollment/:section_ID/:student_ID/:grade", (req, res) =>{
+app.post('/courseenrollment', (req, res) =>{
+    const {section_ID, student_ID, grade} = req.body;
     let sql = "INSERT INTO courseenrollment VALUES (?, ?, ?)";
-    connection.query(sql, [req.body.section_ID, req.body.student_ID, req.body.grade],function(err, results){
+    connection.query(sql, [section_ID, student_ID, grade],function(err, results){
         if (err) throw err;
         res.send(results);
     });

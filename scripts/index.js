@@ -37,11 +37,11 @@ function populateShoppingCart(data) {
         */
         /*
         // Insert data into the new cells
-        cell0.innerHTML = "CS " + data[i].course.courseNumber + "-" + data[i].coursesection.sectionNumber;                                  // course
-        cell1.innerHTML = data[i].coursesection.meetingDays + " " + data[i].coursesection.startTime + "-" + data[i].coursesection.endtime;  // schedule
-        cell2.innerHTML = data[i].room.roomNumber;                                                                                          // room
-        cell3.innerHTML = data[i].instructor.firstName + " " + instructor.lastName;                                                         // instructor
-        cell4.innerHTML = data[i].course.creditUnit;                                                                                        // units
+        cell0.innerHTML = "CS " + data[i-1].course.courseNumber + "-" + data[i].coursesection.sectionNumber;                                  // course
+        cell1.innerHTML = data[i-1].coursesection.meetingDays + " " + data[i].coursesection.startTime + "-" + data[i].coursesection.endtime;  // schedule
+        cell2.innerHTML = data[i-1].room.roomNumber;                                                                                          // room
+        cell3.innerHTML = data[i-1].instructor.firstName + " " + instructor.lastName;                                                         // instructor
+        cell4.innerHTML = data[i-1].course.creditUnit;                                                                                        // units
         */
 
         /*

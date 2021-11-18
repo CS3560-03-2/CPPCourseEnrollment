@@ -88,8 +88,9 @@ INSERT INTO course VALUES
     (3, 3560, 'Object-Oriented Design and Programming', 3);
 
 INSERT INTO coursesection VALUES
-	(1, 1, 1, 1, 1300, 'MWF 11:00AM - 12:15PM', 30, 20),
-    (2, 2, 1, 2, 3010, 'TTh 9:00AM - 11:15AM', 30, 20);
+	(1, 1, 1, 1, 1, 'MWF 11:00AM - 12:15PM', 30, 20),
+    (2, 2, 1, 2, 1, 'TTh 9:00AM - 11:15AM', 30, 20),
+	(3, 2, 2, 2, 2, 'TTh 4:00PM - 5:15PM', 30, 20);
     
 INSERT INTO courseenrollment VALUES
 	(1, 1, 'A-'),
