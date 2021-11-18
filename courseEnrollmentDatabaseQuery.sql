@@ -90,7 +90,8 @@ INSERT INTO course VALUES
 INSERT INTO coursesection VALUES
 	(1, 1, 1, 1, 1, 'MWF 11:00AM - 12:15PM', 30, 20),
     (2, 2, 1, 2, 1, 'TTh 9:00AM - 11:15AM', 30, 20),
-	(3, 2, 2, 2, 2, 'TTh 4:00PM - 5:15PM', 30, 20);
+	(3, 2, 2, 2, 2, 'TTh 4:00PM - 5:15PM', 30, 20),
+	(4, 2, 2, 3, 3, 'TTh 5:00PM - 5:15PM', 30, 20);
     
 INSERT INTO courseenrollment VALUES
 	(1, 1, 'A-'),
@@ -98,6 +99,6 @@ INSERT INTO courseenrollment VALUES
     (1, 2, 'B-'),
     (1, 3, 'C'),
     (1, 4, 'B+');
-    
+
 INSERT INTO shoppingcart VALUES
 	(1, 1, 8, 8);
