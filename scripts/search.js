@@ -1,4 +1,7 @@
 
+//var numEnrolled;
+//var numWaitlisted;
+
 function searchButtonPressed() {
     // Unhide search results section
     searchResults.classList.remove("hidden");
@@ -33,7 +36,7 @@ function searchButtonPressed() {
 function getCourseSections(data) {
     // Set course name
     var courseFullName = document.getElementById("courseFullName");
-    courseFullName.value = data[0].courseNumber + " - " + data[0].courseName;
+    courseFullName.textContent = "CS " + data[0].courseNumber + " - " + data[0].courseName;
 
     // Get course sections
     var courseID = data[0].course_ID;
@@ -44,31 +47,14 @@ function getCourseSections(data) {
 }
 
 function populateSearchResults(data) {
-
+    table = document.getElementById("resultList");
 
     // Fill search results
     for (var i = 1; i <= data.length; i++) {
         
-        // Get instructor for current course section
-        var instructorID = data[i-1].instructor_ID;
-        var instructorFirstName;
-        var instructorLastName;
-
-        fetch('http://localhost:3000/instructor/' + instructorID)
-            .then(response => response.json())
-            .then((data) => {
-                instructorFirstName = data[0].firstName;
-                instructorLastName = data[0].lastName;
-            });
-
-        // Get room for current course section
-        var roomID = data[i-1].room_ID;
-        var roomNumber;
-        fetch('http://localhost:3000/room/' + roomID)
-            .then(response => response.json())
-            .then((data) => {
-                roomNumber = data[0].roomNumber;
-            });
+        
+        
+        
 
         var row = table.insertRow(i);
 
@@ -83,10 +69,74 @@ function populateSearchResults(data) {
         // Insert data into the new cells
         cell0.innerHTML = data[i-1].sectionNumber;
         cell1.innerHTML = data[i-1].classSchedule;
-        cell2.innerHTML = roomNumber;
-        cell3.innerHTML = instructorFirstName + " " + instructorLastName;
-        cell4.innerHTML = "";
-        cell5.innerHTML = "<button id='selectBtn' onclick='addToShoppingCart(" +  + ")'>Select</button>"; 
+
+        // Get room for current course section
+        var roomID = data[i-1].room_ID;
+
+        console.log("qwer" + (i-1));
+        fetch('http://localhost:3000/room/' + roomID)
+            .then(response => response.json())
+            .then((data) => {
+                cell2.innerHTML =  data[0].roomNumber;
+                console.log("room" + (i-1));
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        // Get instructor for current course section
+        var instructorID = data[i-1].instructor_ID;
+        fetch('http://localhost:3000/instructor/' + instructorID)
+            .then(response => response.json())
+            .then((data, instructorFirstName, instructorLastName) => {
+                cell3.innerHTML = data[0].firstName + " " + data[0].lastName;
+                console.log("instr" + (i-1));
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        
+        //console.log(data[i-1].section_ID);
+        var maxEnrolledCapacity = data[i-1].maxEnrolledCapacity;
+        fetch('http://localhost:3000/countcourseenrollment/' + data[i-1].section_ID)
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data[0].count);
+                var numEnrolled = data[0].count;
+
+                console.log("open: " + numEnrolled + "/" + maxEnrolledCapacity);
+                var status = "";
+                if (numEnrolled < maxEnrolledCapacity) {
+                    // open
+                    status = "<i class='fas fa-check'>";
+                } /*else if (numEnrolled == maxEnrolledCapacity && numWaitlisted < maxWaitlistPosition) {
+                    // waitlist
+                    status = "<i class='fas fa-times'>";
+                } */else {
+                    // closed
+                    console.log("closed");
+                    status = "<i class='fas fa-list'>";
+                }
+                cell4.innerHTML = status;
+            });
+        
+
+
+/*
+        // Set status according to number of students
+        var status = "";
+        if (numEnrolled < maxEnrolledCapacity) {
+            // open
+            status = "<i class='fas fa-check'>";
+        } else if (numEnrolled == maxEnrolledCapacity && numWaitlisted < maxWaitlistPosition) {
+            // waitlist
+            status = "<i class='fas fa-times'>";
+        } else {
+            // closed
+            status = "<i class='fas fa-list'>";
+        }
+        cell4.innerHTML = status;
+*/
+        cell5.innerHTML = "<button id='selectBtn' onclick='addToShoppingCart(" + i + ")'>Select</button>"; 
     }
 
 
@@ -116,3 +166,9 @@ function populateSearchResults(data) {
 function addToShoppingCart() {
 
 }
+/*
+function setnumWaitlisted(data) {
+    numWaitlisted = data;
+    console.log(numWaitlisted + "q234rwqer");
+}
+*/

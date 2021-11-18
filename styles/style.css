@@ -23,6 +23,10 @@ h2 {
     font-family: arial;
 }
 
+h3 {
+    margin-left: 100px;
+}
+
 .row1 {
     margin-left: 100px;
     margin-right: 100px;
@@ -84,10 +88,9 @@ button {
 }
 #selectBtn {
     padding: 0px 0px;
-    font-size: 0px;
     top: 0px;
     right: 0px;
-    height: 10px;
+    height: 20px;
     font-size: 15px;
     position: relative;
 }

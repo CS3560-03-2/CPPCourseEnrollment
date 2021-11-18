@@ -113,3 +113,4 @@ function populateClassSchedule(data) {
         */                                                                                                          // status
     }
 }
+

@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     database: 'courseenrollment',
     user: 'root',
-    password: 'asdf1234'
+    password: 'Tusd7002934'
 });
 
 //get all students
@@ -186,10 +186,10 @@ let data = {
 }
 
 // INSERT - courses into shopping cart, adding from search results (based on student id) - not working
-app.post('post/shoppingcart', (req, res) =>{
+app.get('/shoppingcart/:section_ID/:student_ID/:unitsEnrolled/:unitsWaitlisted', (req, res) =>{
     let sql = "INSERT INTO shoppingcart VALUES (?, ?, ?, ?)";
-    console.log(req.body.section_ID)
-    connection.query(sql, [data.section_ID, data.student_ID, data.unitsEnrolled, data.unitsWaitlisted],function(err, results){
+    res.send(req.body)
+    connection.query(sql, [req.params.section_ID, req.params.student_ID, req.params.unitsEnrolled, req.params.unitsWaitlisted],function(err, results){
         if (err) throw err;
         res.send(results);
     });
@@ -206,6 +206,31 @@ app.post('/courseenrollment', (req, res) =>{
     });
 })
 
+// get number of objects in courseenrollment
+app.get('/countcourseenrollment/:id', function(req, res){
+    let sql = "SELECT COUNT(*) AS count FROM courseenrollment WHERE section_ID = ?";
+    connection.query(sql, [req.params.id], function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+// get number of objects in shoppingcart
+app.get('/countshoppingcart', function(req, res){
+    let sql = "SELECT COUNT(*) AS count FROM shoppingcart";
+    connection.query(sql, function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
+
+app.get('/countshoppingcart', function(req, res){
+    let sql = "SELECT * FROM courseenrollment";
+    connection.query(sql, function(err, results){
+        if (err) throw err;
+        res.send(results);
+    });
+});
 
 app.listen(3000, function(){
     console.log("app listening 3000");
